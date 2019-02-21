@@ -1,0 +1,89 @@
+BODY {
+	FONT-SIZE: 12pt; 
+	COLOR: black; 
+	LINE-HEIGHT: 160%; 
+	FONT-FAMILY: ±¼¸²,verdana,tahoma;
+	background-color:ivory;
+} 
+TABLE{border:1px;} 
+
+TD {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 160%; FONT-FAMILY: ±¼¸²,verdana,tahoma
+}  
+SELECT {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 22px; FONT-FAMILY: ±¼¸²,verdana,tahoma
+}
+DIV {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 160%; FONT-FAMILY: ±¼¸²,verdana,tahoma
+}
+FORM {
+	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 160%; FONT-FAMILY: ±¼¸²,verdana,tahoma
+}
+TEXTAREA {
+	BORDER: 1px solid #999999; 
+	FONT-SIZE: 12pt; 
+	FONT-FAMILY: ±¼¸²,verdana; 
+	BACKGROUND-COLOR: light-gray;
+}
+INPUT {
+	BORDER: 1px solid #999999; 
+	FONT-SIZE: 12pt; 
+	FONT-FAMILY: ±¼¸²,verdana; 
+	HEIGHT: 25px; 
+}
+
+b{
+	color:#6c63a6;
+}
+.table{
+	padding-left: 30;
+	background-color:#f9fafb;
+}
+/* tr{
+	height:70;
+	
+} */
+
+#id{
+	width:150;
+	height:30;
+}
+#passwd{
+	
+	width:150;
+	height:30;
+}
+#passwd2{
+	
+	width:150;
+	height:30;
+}
+#name{
+	
+	width:150;
+	height:30;
+}
+#email{
+	
+	width:300;
+	height:30;
+}
+#zipcode{
+	
+	width:100;
+	height:30;
+}
+#addr{
+	width:500;
+	height:30;	
+}
+#job{
+	width:150;
+	height:30;
+}
+
+
+
+A:link {text-decoration:none;color:#696969}
+A:hover{text-decoration:yes;color:#66CCFF}
+A:visited {text-decoration:none;color:#330066}

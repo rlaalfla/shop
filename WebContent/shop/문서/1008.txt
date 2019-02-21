@@ -1,0 +1,231 @@
+쇼핑몰
+
+새프로젝트
+09_shop
+web.xml
+
+커넥션 풀 설정
+META-INF/context.xml
+WEB-INF/web.xml
+
+=================================
+간단한 쇼핑몰 사이트 구축
+=================================
+
+1.기능정의
+
+사용자
+-로그인/로그아웃
+-회원가입 및 수정
+
+-상품목록
+-상품상세보기
+-장바구니에 상품담기
+-상품구매(주문하기)
+-구매목록 보기
+
+==================================
+DB작업
+
+mysql5\bin>mysql -u root -p
+12345
+
+create database shopdb;
+use shopdb;
+
+create table shop_info(
+pro_no int(5) not null auto_increment,
+code varchar(10) not null,
+name varchar(20) not null,
+price int(5) not null,
+stock int(5),
+detail varchar(4000),
+comp varchar(20),
+regdate datetime,
+image varchar(30),
+primary key(pro_no)
+);
+
+
+
+(
+pro_no	상품번호(일련번호)
+code	상품코드
+name	상품이름
+price	상품가격
+stock	물량,보유수량
+detail	설명
+comp	제조회사 
+regdate	상품등록날짜 
+image	상품이미지
+
+);
+
+
+WebContent/imgs/
+5개 정도
+
+
+나이키 에어포스 1 세이지 로우
+가격:139,000
+스타일 : AR5339-201
+현재 컬러 : 파티클 베이지
+stock:100
+detail:신발에 기름이 접촉하지 않도록 신경 써주시기 바랍니다
+제품소재갑피: 소가죽/ 중창: 폴리우레탄/ 밑창: 고무 100%
+
+
+나이키 에어맥스 97
+가격:209,000
+스타일 : 921733-006
+현재 컬러 : 블랙
+stock:100
+detail:에어솔: 신발의 에어백은 신발 본체와 일체형으로 제작, 교체나 때움 등의 수리가 불가능하여 외력에 의해 에어가 손상된 경우는 보상 처리되지 않습니다.
+제품소재갑피: 합성피혁, 합성플라스틱, 폴리에스테르 100%/ 중창: 폴리우레탄, 열가소성 폴리우레탄/ 밑창: 고무 100%
+
+
+
+나이키 에어맥스 90 프리미엄
+가격:159,000
+현재 컬러 : 퓨어 플래티늄
+스타일 : 896497-010
+stock:100
+detail:에어솔: 신발의 에어백은 신발 본체와 일체형으로 제작, 교체나 때움 등의 수리가 불가능하여 외력에 의해 에어가 손상된 경우는 보상 처리되지 않습니다
+제품소재갑피: 소가죽, 합성피혁, 폴리에스테르 100%/ 중창: 폴리우레탄, 열가소성 폴리우레탄/ 밑창: 고무 100%
+
+
+
+나이키 블레이저 로우 LE
+가격:89,000
+현재 컬러 : 화이트/보르도
+스타일 : AV9370-115
+stock:100
+detail:신발에 기름이 접촉하지 않도록 신경 써주시기 바랍니다
+제품소재갑피: 소가죽, 합성피혁, 폴리에스테르 100%/ 밑창: 고무 100%
+
+
+
+나이키 오디세이 리액트
+가격:129,000 -> 90,300
+현재 컬러 : 파티클 베이지
+스타일 : AO9820-201
+stock:100
+detail:신발에 기름이 접촉하지 않도록 신경 써주시기 바랍니다
+제품소재갑피: 합성플라스틱, 폴리에스테르 100%/ 중창: 텍스타일, 폴리에스테르 100%/ 밑창: 파일론, 열가소성 폴리우레탄, 고무 60%, 플라스틱 40%
+
+
+
+나이키 에어맥스 95 SE
+가격:199,000
+현재 컬러 : 하프 블루
+스타일:918413-400
+stock:100
+detail:에어솔: 신발의 에어백은 신발 본체와 일체형으로 제작, 교체나 때움 등의 수리가 불가능하여 외력에 의해 에어가 손상된 경우는 보상 처리되지 않습니다
+제품소재갑피 : 합성 플라스틱, 합성피혁, 폴리에스테르 100% / 중창: 폴리우레탄, 열가소성 폴리우레탄 / 밑창: 고무 80%, 플라스틱 20%
+
+insert into shop_info values(0,'code','name',가격,수량,'설명','회사명','날짜','c001.jpg');
+
+insert into shop_info values(0,'AR5339-201','에어포스 1 세이지 로우',139000,10,'신발에 기름이 접촉하지 않도록 신경 써주시기 바랍니다.색상:파티클 베이지','나이키','2018-12-19','c001.jpg');
+insert into shop_info values(0,'921733-006','에어맥스 97',209000,10,'신발의 에어백은 신발 본체와 일체형으로 제작.색상:블랙','나이키','2018-12-19','c002.jpg');
+insert into shop_info values(0,'896497-010','에어맥스 90 프리미엄',159000,10,'신발의 에어백은 신발 본체와 일체형으로 제작.색상:퓨어플래티늄','나이키','2018-12-19','c003.jpg');
+insert into shop_info values(0,'AV9370-115','블레이저 로우 LE',89000,10,'신발에 기름이 접촉하지 않도록 신경 써주시기 바랍니다.색상:화이트 보르도','나이키','2018-12-19','c004.jpg');
+insert into shop_info values(0,'AO9820-201','오디세이 리액트',90300,10,'신발에 기름이 접촉하지 않도록 신경 써주시기 바랍니다.색상:파티클 베이지','나이키','2018-12-19','c005.jpg');
+insert into shop_info values(0,'918413-400','에어맥스 95 SE',199000,10,'신발의 에어백은 신발 본체와 일체형으로 제작.색상:하프 블루','나이키','2018-12-19','c006.jpg');
+
+
+======================================
+
+src/shopdb.ProductDto.java (모델빈 = DTO)
+src/shopdb.ProductMgr.java (비지니스 로직=DAO)
+
+WebContent
+	shop폴더
+
+	script.js
+	style.css
+
+	Top.jsp
+	Bottom.jsp
+
+	Login.jsp
+	LoginProc.jsp
+	Index.jsp
+	LogOut.jsp
+
+	LogErr.jsp
+
+
+	DAO작업
+	ProductList.jsp =>상품목록보기
+	ProductDetail.jsp => 상세보기
+
+	
+
+
+현재경로:<%=request.getContextPath() %>
+<img src="<%=request.getContextPath()%>/imgs/<%=dto.getImage()%>" width="150" height="150">
+
+<%--
+//이미지 파일을 가져올 때 사용
+컨텍스트 경로(웹경로):<%=request.getContextPath() %><br>
+
+//이미지파일 파일 업로드할때 사용
+실제경로:<%=config.getServletContext().getRealPath("/")%>
+ --%>
+
+
+===================================
+shop_order 주문 테이블
+===================================
+use shopdb;
+
+drop table shop_order;
+
+create table shop_order(
+ordno int(5) not null auto_increment,
+pro_no int(5) not null,
+quantity varchar(10) not null,
+orddate datetime,
+state varchar(10),
+userid varchar(10),
+primary key (ordno)
+);
+
+
+설명
+
+ordno	주문번호
+pro_no	상품번호
+quantity	주문수량
+orddate 	주문날짜
+state	상태(1.주문,2.배송..)
+userid	주문회원 id
+
+----------------------------
+
+shopdb.OrderDto.java (모델빈)
+shopdb.CartMgr.java (장바구니)
+
+
+흐름
+ProductDetail.jsp-->CartProc.jsp
+-->CartList.jsp(장바구니 내용 보기)
+
+
+1010
+shopdb.ProductMgr.java (남은 물량 계산)
+shopdb.OrderMgr.java (주문처리 DAO)
+
+-->CartList-->
+OrderProc.jsp-->
+OrderList.jsp(주문목록 리스트)
+
+
+
+
+
+
+
+
+
+

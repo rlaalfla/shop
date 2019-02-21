@@ -1,0 +1,72 @@
+WebContent
+	admin폴더
+
+user shopdb;
+
+Table 작성
+--------------------------------
+create table admin(
+admin_id varchar(20) not null,
+admin_pwd varchar(20) not null,
+primary key (admin_id)
+);
+--------------------------------
+
+WebContent
+	admin폴더
+		AdminLogin.jsp
+		AdminLoginProc.jsp
+		AdminLogout.jsp
+	
+		Top.jsp
+		Bottom.jsp
+		Index.jsp
+
+		script.js
+		style.css
+
+----------------------------------
+
+ProductMgr.java (관리자)
+
+//상품등록
+public boolean insertProduct(HttpServletRequest req){}
+
+//상품업데이트
+public boolean updateProduct(HttpServletRequest req){}
+
+//상품삭제
+public boolean deleteProduct(String no){}
+
+------------------------------------
+
+
+//JSP경우 : 실제경로 얻기 : 그림등록하기 위해
+//<%= config.getServletContext().getRealPath("/")%>;//이것을 사용하세요
+//<%= application.getRealpath("/")%>
+		
+//서블릿에서 실제 경로 얻기 : 그림등록 하기 위해
+//request.getRealPath("/");
+//request.getServletCotnext().getRealPath("/"); => 이것이 더 정확함
+		
+//JSP 웹 경로 얻기 : 그림을 가져와 웹으로 출력할때
+//<%=request.getContextPath()%>
+//==>프로젝트일므이 컨텍스트 이름이다
+
+
+----------------------------------------------
+ProductMgr.java-->
+ProductList.jsp (상품목록)
+-->ProductInsertForm.jsp 상품등록 폼
+-->ProductProc.jsp 상품등록
+
+ProductDetail.jsp 상세보기
+-->ProductUpdate.jsp 수정/삭제
+-->ProductProc.jsp 상품등록,수정/삭제
+-->ProductDetail.jsp 수정/삭제
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="05_jsp_pool" path="/09_shop" reloadable="true">
+
+<Resource  
+name="jdbc/mysql" 
+auth="Container"
+type="javax.sql.DataSource"
+driverClassName="com.mysql.jdbc.Driver"
+url="jdbc:mysql://localhost:3306/shopdb?autoReconnect=true"
+username="root"
+password="12345"
+maxWait="5000"
+maxActive="20"
+testOnBorrow="true" 
+factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+closeMethod="close"
+>
+
+</Resource>
+</Context>
